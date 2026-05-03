@@ -15,11 +15,13 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    font-weight: 300px;
+    font-weight: 300;
+    overflow-x: hidden;
 }
 
 img {
     max-width: 100%;
+    display: block;
 }
 
 li {
@@ -41,6 +43,7 @@ nav {
 
 nav ul {
     display: flex;
+    gap: 10px;
 }
 
 nav ul li a {
@@ -60,47 +63,49 @@ nav ul li a {
 }
 
 .bg-header h1 {
-    font-weight: 500px;
+    font-weight: 500;
+    font-size: 3rem;
+    text-align: center;
 }
 
-/* Estilos section */
+/* Sections */
 section,
 footer {
     padding: 40px;
 }
 
-section>div {
-
+section > div {
     display: flex;
 }
 
 h2 {
     font-size: 2rem;
     text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Estilos cards */
-#card-section>div {
+/* Cards */
+#card-section > div {
     display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .card {
     border-radius: 20px;
     padding: 20px;
-    width: 50%;
+    width: 33.33%;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 6px #ccc;
-    margin: 20px 10px;
-
 }
 
-.card>h3 {
+.card > h3 {
     color: var(--color-secundario);
     font-size: 1.5em;
     margin: 20px 0;
 }
 
-/* Estilos contacto*/
+/* Contacto */
 .contacto,
 .formulario {
     padding: 30px;
@@ -111,12 +116,12 @@ h2 {
     text-align: right;
 }
 
-.contacto>p {
+.contacto > p {
     line-height: 2;
     color: var(--color-texto);
 }
 
-.contacto>p>span {
+.contacto > p > span {
     font-weight: bold;
 }
 
@@ -140,22 +145,23 @@ input {
     border-radius: 20px;
     outline: none;
     padding: 8px;
+    border: none;
 }
 
 input[type="submit"] {
     background-color: var(--color-principal);
     border: 2px solid #fff;
     color: #fff;
-
+    cursor: pointer;
 }
 
-/*footer*/
+/* Footer */
 footer {
     background-color: var(--color-principal);
     display: flex;
 }
 
-footer>div {
+footer > div {
     width: 50%;
 }
 
@@ -172,15 +178,147 @@ footer ul {
     position: relative;
 }
 
-.news-letter>input[type="text"] {
+.news-letter > input[type="text"] {
     width: 100%;
 }
 
-.news-letter>input[type="submit"] {
+.news-letter > input[type="submit"] {
     position: absolute;
     width: 100px;
     right: 0;
 }
 
-/*** Responsive */
+/* =========================
+   TABLET - max-width 768px
+   ========================= */
+@media (max-width: 768px) {
+    nav ul {
+        justify-content: center;
+    }
 
+    .bg-header {
+        height: 250px;
+    }
+
+    .bg-header h1 {
+        font-size: 2.4rem;
+    }
+
+    section,
+    footer {
+        padding: 30px;
+    }
+
+    #card-section > div {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .card {
+        width: 45%;
+        margin: 0;
+    }
+
+    .card:last-child {
+        width: 94%;
+    }
+
+    section > div {
+        flex-direction: column;
+    }
+
+    .formulario,
+    .contacto {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .contacto {
+        text-align: center;
+    }
+
+    footer {
+        gap: 30px;
+    }
+
+    footer > div {
+        width: 50%;
+    }
+}
+
+/* =========================
+   MOBILE - max-width 450px
+   ========================= */
+@media (max-width: 450px) {
+    nav {
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .bg-header {
+        height: 200px;
+        padding: 20px;
+    }
+
+    .bg-header h1 {
+        font-size: 2rem;
+    }
+
+    section,
+    footer {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    #card-section > div {
+        flex-direction: column;
+    }
+
+    .card,
+    .card:last-child {
+        width: 100%;
+    }
+
+    .formulario,
+    .contacto {
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    form {
+        padding: 25px 20px 5px;
+    }
+
+    .contacto {
+        text-align: left;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+    }
+
+    footer > div {
+        width: 100%;
+    }
+
+    .news-letter {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .news-letter > input[type="submit"] {
+        position: static;
+        width: 100%;
+    }
+}
